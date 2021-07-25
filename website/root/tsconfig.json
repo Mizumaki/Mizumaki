@@ -6,6 +6,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "noEmit": true,
+    "tsBuildInfoFile": "./tsconfig.tsbuildinfo",
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
