@@ -1,0 +1,16 @@
+{
+  "name": "mizumaki",
+  "version": "1.0.0",
+  "description": "Mizumaki's Main Repository",
+  "scripts": {
+    "precommit": "npm run precommit:root",
+    "precommit:root": "cd ./website/root && npm run precommit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mizumaki/Mizumaki.git"
+  },
+  "keywords": [],
+  "author": "Ryota Mizumaki",
+  "homepage": "https://github.com/Mizumaki/Mizumaki#readme"
+}

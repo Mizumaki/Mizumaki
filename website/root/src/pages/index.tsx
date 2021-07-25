@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { RecoilRoot} from 'recoil'
+import { RecoilRoot } from 'recoil';
 import { Fragment } from 'react';
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
         <title>Ryota Mizumaki</title>
       </Head>
       <RecoilRoot>
-        <h1>Hello World</h1>
+        <h1 className='hello'>Hello World</h1>
       </RecoilRoot>
     </Fragment>
   );
