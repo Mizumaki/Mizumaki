@@ -12,5 +12,8 @@
   },
   "keywords": [],
   "author": "Ryota Mizumaki",
-  "homepage": "https://github.com/Mizumaki/Mizumaki#readme"
+  "homepage": "https://github.com/Mizumaki/Mizumaki#readme",
+  "devDependencies": {
+    "typescript": "^4.5.3"
+  }
 }
