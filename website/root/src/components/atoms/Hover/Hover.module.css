@@ -1,0 +1,7 @@
+:not(:hover) > .on {
+  display: none;
+}
+
+:hover > .off {
+  display: none;
+}

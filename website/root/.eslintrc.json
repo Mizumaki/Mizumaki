@@ -44,6 +44,14 @@
       }
     ], // If "both", failed when nesting without id https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-associated-control.md
     "jsx-a11y/no-onchange": "off",
-    "jsx-a11y/accessible-emoji": "off" // Deprecated https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
+    "jsx-a11y/accessible-emoji": "off", // Deprecated https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
+    "jsx-a11y/anchor-is-valid": [ // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/402#issuecomment-368305051
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ]
   }
 }

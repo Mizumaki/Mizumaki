@@ -1,0 +1,13 @@
+.animation {
+  transform: translateX(0);
+  animation: sushi 4s linear 0s infinite;
+}
+
+@keyframes sushi {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
