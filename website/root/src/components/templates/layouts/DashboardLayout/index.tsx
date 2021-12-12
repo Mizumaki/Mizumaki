@@ -13,6 +13,7 @@ export const DashboardLayout: React.FC<Props> = ({ backgroundColor, color, child
       body {
         color: ${color};
         background-color: ${backgroundColor};
+        transition: background-color 0.5s;
       }
     `;
   }, [backgroundColor]);

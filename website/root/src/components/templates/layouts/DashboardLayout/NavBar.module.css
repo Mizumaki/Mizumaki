@@ -7,8 +7,6 @@
 .serviceName {
   font-size: 2.4rem;
   text-align: center;
-  padding: 0.5em;
-  margin: 0 auto;
 }
 
 .links {
@@ -26,8 +24,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 12rem;
     font-size: 3rem;
-    vertical-align: middle;
+    line-height: 1.1;
+    height: 12rem;
+    padding: 0.5em;
+  }
+
+  .serviceName a {
+    width: min-content;
   }
 }

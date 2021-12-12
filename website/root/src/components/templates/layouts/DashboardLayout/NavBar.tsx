@@ -6,7 +6,11 @@ export const NavBar: React.VFC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.serviceNameSection}>
-        <h1 className={styles.serviceName}>Ryota Mizumaki</h1>
+        <h1 className={styles.serviceName}>
+          <Link href='/'>
+            <a className={styles.a}>Ryota Mizumaki</a>
+          </Link>
+        </h1>
       </div>
       <ul className={styles.links}>
         <li>
@@ -33,7 +37,7 @@ export const NavBar: React.VFC = () => {
         <li>
           <Link href='/'>
             <a>
-              <Hover on={<span style={{ fontStyle: 'italic' }}>マネー</span>} off={'Stock Investment'} />
+              <Hover on={<span style={{ fontStyle: 'italic' }}>マネー</span>} off={'Investment'} />
             </a>
           </Link>
         </li>

@@ -124,17 +124,6 @@ h4 {
   font-weight: inherit;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-li,
-th,
-figcaption {
-  max-width: 60ch;
-}
-
 svg {
   fill: currentColor;
 }
