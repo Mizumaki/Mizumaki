@@ -9,9 +9,7 @@ const Home = () => {
       <Head>
         <title>Ryota Mizumaki</title>
       </Head>
-      {/* <DashboardLayout backgroundColor='black' color='white'> */}
       <Introduction />
-      {/* </DashboardLayout> */}
     </Fragment>
   );
 };

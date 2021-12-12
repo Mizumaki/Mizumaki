@@ -8,16 +8,14 @@ const Home = () => {
       <Head>
         <title>🥃 | Ryota Mizumaki</title>
       </Head>
-      {/* <DashboardLayout backgroundColor='black' color='white'> */}
       <h2>Liquor</h2>
-      {/* </DashboardLayout> */}
     </Fragment>
   );
 };
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <DashboardLayout backgroundColor='black' color='white'>
+    <DashboardLayout backgroundColor='pink' color='white'>
       {page}
     </DashboardLayout>
   );
