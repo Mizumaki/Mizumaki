@@ -19,21 +19,21 @@ export const NavBar: React.VFC = () => {
         <li>
           <Link href='/'>
             <a>
-              <Hover on={<span style={{ fontStyle: 'italic' }}>さけ</span>} off={'Liquor'} />
+              <Hover on={<span style={{ fontStyle: 'italic' }}>リカー</span>} off={'Liquor'} />
             </a>
           </Link>
         </li>
         <li>
           <Link href='/'>
             <a>
-              <Hover on={<span style={{ fontStyle: 'italic' }}>えいが</span>} off={'Movie'} />
+              <Hover on={<span style={{ fontStyle: 'italic' }}>ムービー</span>} off={'Movie'} />
             </a>
           </Link>
         </li>
         <li>
           <Link href='/'>
             <a>
-              <Hover on={<span style={{ fontStyle: 'italic' }}>かぶ</span>} off={'Stock Investment'} />
+              <Hover on={<span style={{ fontStyle: 'italic' }}>マネー</span>} off={'Stock Investment'} />
             </a>
           </Link>
         </li>
