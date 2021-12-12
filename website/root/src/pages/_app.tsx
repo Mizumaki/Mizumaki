@@ -1,9 +1,19 @@
 import '../styles/reset.css';
 import '../styles/base.css';
+import type { NextPage } from 'next';
+import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { AppProps } from 'next/app';
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: React.ReactElement) => React.ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout || (page => page);
   return (
     <>
       <Head>
@@ -32,7 +42,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link rel='preload' href='/fonts/x16y32pxGridGazer.ttf' as='font' />
         <link rel='preload' href='/fonts/x12y16pxMaruMonica.ttf' as='font' />
       </Head>
-      <Component {...pageProps} />
+      {getLayout(<Component {...pageProps} />)}
     </>
   );
 }

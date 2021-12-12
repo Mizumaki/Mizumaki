@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
 import { Fragment } from 'react';
-import { Introduction } from '~/components/templates/Introduction';
 import { DashboardLayout } from '~/components/templates/layouts/DashboardLayout';
 
 const Home = () => {
@@ -12,7 +11,7 @@ const Home = () => {
       </Head>
       <RecoilRoot>
         {/* <DashboardLayout backgroundColor='black' color='white'> */}
-        <Introduction />
+        <h2>Liquor</h2>
         {/* </DashboardLayout> */}
       </RecoilRoot>
     </Fragment>
