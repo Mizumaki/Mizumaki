@@ -3,6 +3,7 @@ import '../styles/base.css';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { RecoilRoot } from 'recoil';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode;
@@ -42,7 +43,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <link rel='preload' href='/fonts/x16y32pxGridGazer.ttf' as='font' />
         <link rel='preload' href='/fonts/x12y16pxMaruMonica.ttf' as='font' />
       </Head>
-      {getLayout(<Component {...pageProps} />)}
+      <RecoilRoot>{getLayout(<Component {...pageProps} />)}</RecoilRoot>
     </>
   );
 }
