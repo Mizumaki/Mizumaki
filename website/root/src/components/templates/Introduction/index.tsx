@@ -64,7 +64,6 @@ export const Introduction = () => {
               </td>
             </tr>
           </tbody>
-          <tr></tr>
         </table>
       </div>
     </div>

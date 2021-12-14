@@ -9,14 +9,32 @@
   text-align: center;
 }
 
-.links {
-  font-size: 3rem;
+.logsSection {
+  padding: 0 2rem;
+}
+
+.heading {
+  padding: 0 0.5em;
+  font-family: 'MaruMonica';
+  font-size: 1.75rem;
   text-align: center;
+}
+
+.links {
+  padding: 0.7em 0;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+ul.links li + li {
+  margin-top: 0.3em;
 }
 
 .links a {
   display: inline-block;
   width: 100%;
+  text-decoration: underline;
+  text-underline-offset: 0.1em;
 }
 
 @media screen and (min-width: 1000px) {
