@@ -18,21 +18,16 @@ export const useVisibilityAnimation = (
   isVisible: boolean,
   status: VisibilityStatus,
   setVisibility: Dispatch<SetStateAction<boolean>>,
-  render: () => void
+  render: () => ReactNode
 ] => {
   const [isVisible, setIsVisible] = useState(options.initialVisibility);
   const [isInternallyVisible, setIsInternallyVisible] = useState(options.initialVisibility);
 
   useEffect(() => {
-    if (isVisible) {
-      setIsInternallyVisible(true);
-      return;
-    } else {
-      const timeout = setTimeout(() => {
-        setIsInternallyVisible(isVisible);
-      }, options.animationDuration);
-      return () => clearTimeout(timeout);
-    }
+    const timeout = setTimeout(() => {
+      setIsInternallyVisible(isVisible);
+    }, options.animationDuration);
+    return () => clearTimeout(timeout);
   }, [isVisible]);
 
   const status = useMemo<VisibilityStatus>(() => {
@@ -68,6 +63,22 @@ export const useVisibilityAnimation = (
   `;
 
   const render = useCallback(() => {
+    if (status.isOpening) {
+      return (
+        <div
+          style={{
+            transitionProperty: 'opacity visibility',
+            transitionDuration: `${options.animationDuration}ms`,
+            opacity: '1',
+            visibility: 'visible',
+            animation: `${options.animationDuration}ms ease-out visibilityAnimation`,
+          }}>
+          <style>{animStyle}</style>
+          {children}
+        </div>
+      );
+    }
+
     return isInternallyVisible ? (
       <div
         style={{
@@ -75,13 +86,12 @@ export const useVisibilityAnimation = (
           transitionDuration: `${options.animationDuration}ms`,
           opacity: isVisible ? '1' : '0',
           visibility: isVisible ? 'visible' : 'hidden',
-          animation: `${options.animationDuration}ms ease-out visibilityAnimation`,
         }}>
         <style>{animStyle}</style>
         {children}
       </div>
     ) : null;
-  }, [isVisible, isInternallyVisible, options.animationDuration, children]);
+  }, [isVisible, isInternallyVisible, status, options.animationDuration, children]);
 
   return [isVisible, status, setIsVisible, render];
 };
