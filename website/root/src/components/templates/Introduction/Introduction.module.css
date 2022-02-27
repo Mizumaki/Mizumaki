@@ -1,3 +1,40 @@
+.wrapper {
+  & > section + section {
+    margin-top: 1.5em;
+  }
+
+  & h1 {
+    margin-bottom: 0.2em;
+  }
+
+  & h3 {
+    font-size: 1em;
+    padding: 0.5em;
+  }
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.2em;
+
+  & .title {
+    margin-left: 0.2em;
+  }
+
+  & .sectionToggleButton {
+    height: 1ch;
+    display: flex;
+    align-items: center;
+    font-size: 3.2rem;
+  }
+}
+
+.sectionContents {
+  border: 1px solid #2E2E2E;
+  padding: 1rem;
+}
+
 .icon {
   font-size: 4.2rem;
 }

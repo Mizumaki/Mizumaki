@@ -127,3 +127,7 @@ h4 {
 svg {
   fill: currentColor;
 }
+
+pre {
+  white-space: pre;
+}

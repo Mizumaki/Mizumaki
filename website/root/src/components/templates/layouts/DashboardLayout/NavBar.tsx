@@ -34,7 +34,7 @@ export const NavBar: React.VFC = () => {
               </Link>
             </li>
             <li>
-              <Link href='/'>
+              <Link href='/movie'>
                 <a>
                   <Hover on={<span style={{ fontStyle: 'italic' }}>ムービー</span>} off={'Movie'} />
                 </a>

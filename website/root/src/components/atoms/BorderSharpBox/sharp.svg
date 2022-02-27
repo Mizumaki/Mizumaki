@@ -1,0 +1,6 @@
+<!-- This is not directly used, but converted to base64 and embded as background-image in BorderSharpBox.module.css https://blog.s0014.com/posts/2017-01-19-il-to-svg/ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 53" fill="white">
+  <text x="0" y="53" font-size="53">
+    #
+  </text>
+</svg>

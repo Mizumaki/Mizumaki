@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+}
+
+.imageSection {
+  flex: 1;
+}
+
+.imageSection .imgWrapper {
+  width: 17.5rem;
+}
+
+.detailSection {
+  flex: 1;
+}
