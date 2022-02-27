@@ -11,6 +11,22 @@
     font-size: 1em;
     padding: 0.5em;
   }
+
+  & section {
+    position: relative;
+
+    & .sectionContents {
+      position: absolute;
+
+      &:not(:empty) {
+        padding: 1rem;
+      }
+
+      & .sectionContentsInner {
+        border: 1px solid #2e2e2e;
+      }
+    }
+  }
 }
 
 .sectionTitle {
@@ -30,9 +46,8 @@
   }
 }
 
-.sectionContents {
-  border: 1px solid #2E2E2E;
-  padding: 1rem;
+.subSectionTitle {
+  margin: 0.5em;
 }
 
 .icon {

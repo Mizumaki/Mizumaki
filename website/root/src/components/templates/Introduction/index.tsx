@@ -1,12 +1,92 @@
-import { useState } from 'react';
 import { BorderSharpBox } from '~/components/atoms/BorderSharpBox';
 import { HorizontalSushiAnimation } from '~/components/atoms/HorizontalSushiAnimation';
+import { useDOMNode } from '~/utils/useDOMNode';
+import { useVisibilityAnimation } from '~/utils/useVisibilityAnimation';
 import styles from './Introduction.module.css';
 
 // やりたいこと：多言語対応、CLI like view、
 export const Introduction = () => {
-  const [isSelfIntroductionShown, setIsSelfIntroductionShown] = useState(true);
-  const [isHobbyShown, setIsHobbyShown] = useState(false);
+  const [selfIntroductionElm, selfIntroductionRefCallback] = useDOMNode();
+  const [isSelfIntroductionShown, , setIsSelfIntroductionShown, renderSelfIntroduction] = useVisibilityAnimation(
+    <div className={styles.sectionContents} ref={selfIntroductionRefCallback}>
+      <div className={styles.sectionContentsInner}>
+        <p>WEB Developer</p>
+        <p>Mainly works as a FrontEnd engineer.</p>
+        <p>Love JS (Jason Statham &amp; JavaScript).</p>
+        <p>Of course, I love TypeScript too. (In fact, I like it more than JS lol) Also, I love React.</p>
+        <div className={styles.subSectionTitle}>
+          <BorderSharpBox>
+            <h3>自信がある技術</h3>
+          </BorderSharpBox>
+        </div>
+        <ul>
+          <li>React</li>
+          <li>TypeScript</li>
+          <li>Node.js</li>
+        </ul>
+        <div className={styles.subSectionTitle}>
+          <BorderSharpBox>
+            <h3>好きな技術、興味関心</h3>
+          </BorderSharpBox>
+        </div>
+        {/* ステータス、レベル感も軽く載せたい */}
+        <ul>
+          <li>Rust</li>
+          <li>Docker</li>
+          <li>Postgre SQL</li>
+          <li>Figma</li>
+          <li>静的型付け</li>
+          <li>UI と Logic の分離</li>
+          <li>Component 設計</li>
+          <li>CSS 設計</li>
+        </ul>
+        <div className={styles.subSectionTitle}>
+          <BorderSharpBox>
+            <h3>経歴</h3>
+          </BorderSharpBox>
+        </div>
+        <div>
+          <h4>職歴</h4>
+          <h4>学歴</h4>
+        </div>
+      </div>
+    </div>,
+    {
+      initialVisibility: true,
+      animationDuration: 500,
+    }
+  );
+  const [isHobbyShown, , setIsHobbyShown, renderHobby] = useVisibilityAnimation(
+    <div className={styles.sectionContents}>
+      <ul>
+        <li>開発</li>
+        <li>酒</li>
+        <li>映画</li>
+        <li>株</li>
+      </ul>
+      <HorizontalSushiAnimation>
+        {/* TODO: CSS の grid で repeat を使いつつ、background-image で icon を表示できないか？ */}
+        <span className={styles.icon}>🥃</span>
+        <span className={styles.icon}>🍺</span>
+        <span className={styles.icon}>🍷</span>
+        <span className={styles.icon}>🍸</span>
+      </HorizontalSushiAnimation>
+    </div>,
+    {
+      initialVisibility: false,
+      animationDuration: 500,
+    }
+  );
+
+  const translateYs = (() => {
+    return {
+      hobby: isSelfIntroductionShown
+        ? selfIntroductionElm?.clientHeight
+          ? `${selfIntroductionElm?.clientHeight}px`
+          : '0'
+        : '0',
+    };
+  })();
 
   return (
     <div className={styles.wrapper}>
@@ -17,69 +97,21 @@ export const Introduction = () => {
           toggleButtonLabel={isSelfIntroductionShown ? '-' : '+'}
           onClickToggle={() => setIsSelfIntroductionShown(prev => !prev)}
         />
-        {isSelfIntroductionShown && (
-          <div className={styles.sectionContents}>
-            <p>WEB Developer</p>
-            <p>Mainly works as a FrontEnd engineer.</p>
-            <p>Love JS (Jason Statham &amp; JavaScript).</p>
-            <p>Of course, I love TypeScript too. (In fact, I like it more than JS lol) Also, I love React.</p>
-            <BorderSharpBox>
-              <h3>自信がある技術</h3>
-            </BorderSharpBox>
-            <ul>
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>Node.js</li>
-            </ul>
-            <BorderSharpBox>
-              <h3>好きな技術、興味関心</h3>
-            </BorderSharpBox>
-            {/* ステータス、レベル感も軽く載せたい */}
-            <ul>
-              <li>Rust</li>
-              <li>Docker</li>
-              <li>Postgre SQL</li>
-              <li>Figma</li>
-              <li>静的型付け</li>
-              <li>UI と Logic の分離</li>
-              <li>Component 設計</li>
-              <li>CSS 設計</li>
-            </ul>
-            <BorderSharpBox>
-              <h3>経歴</h3>
-            </BorderSharpBox>
-            <div>
-              <h4>職歴</h4>
-              <h4>学歴</h4>
-            </div>
-          </div>
-        )}
+        {renderSelfIntroduction()}
       </section>
-      <section>
+      <section
+        style={{
+          transition: 'transform 1s',
+          transform: `translateY(${translateYs.hobby})`,
+        }}>
         <SectionTitle
           value='趣味'
           toggleButtonLabel={isHobbyShown ? '-' : '+'}
           onClickToggle={() => setIsHobbyShown(prev => !prev)}
         />
-        {isHobbyShown && (
-          <div className={styles.sectionContents}>
-            <ul>
-              <li>開発</li>
-              <li>酒</li>
-              <li>映画</li>
-              <li>株</li>
-            </ul>
-            <HorizontalSushiAnimation>
-              {/* TODO: CSS の grid で repeat を使いつつ、background-image で icon を表示できないか？ */}
-              <span className={styles.icon}>🥃</span>
-              <span className={styles.icon}>🍺</span>
-              <span className={styles.icon}>🍷</span>
-              <span className={styles.icon}>🍸</span>
-            </HorizontalSushiAnimation>
-          </div>
-        )}
+        {renderHobby()}
       </section>
-      <section>
+      <section style={{ visibility: 'hidden' }}>
         <p>links</p>
         <table>
           <tbody>
