@@ -22,14 +22,30 @@ export const NavBar: React.VFC = () => {
             <li>
               <Link href='/'>
                 <a>
-                  <Hover on={<span style={{ fontStyle: 'italic' }}>プログラミング</span>} off={'Programming'} />
+                  <Hover
+                    on={<span style={{ fontStyle: 'italic', color: 'var(--c-text-blue)' }}>プログラミング</span>}
+                    off={'Programming'}
+                  />
                 </a>
               </Link>
             </li>
             <li>
               <Link href='/liquor'>
                 <a>
-                  <Hover on={<span style={{ fontStyle: 'italic' }}>リカー</span>} off={'Liquor'} />
+                  <Hover
+                    on={<span style={{ fontStyle: 'italic', color: 'var(--c-text-yellow)' }}>リカー</span>}
+                    off={'Liquor'}
+                  />
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href='/liquor'>
+                <a>
+                  <Hover
+                    on={<span style={{ fontStyle: 'italic', color: 'var(--c-text-yellow)' }}>メシ</span>}
+                    off={'Restaurant'}
+                  />
                 </a>
               </Link>
             </li>
@@ -43,7 +59,20 @@ export const NavBar: React.VFC = () => {
             <li>
               <Link href='/'>
                 <a>
-                  <Hover on={<span style={{ fontStyle: 'italic' }}>マネー</span>} off={'Investment'} />
+                  <Hover
+                    on={<span style={{ fontStyle: 'italic', color: 'var(--c-text-cyan)' }}>マネー</span>}
+                    off={'Investment'}
+                  />
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href='/'>
+                <a>
+                  <Hover
+                    on={<span style={{ fontStyle: 'italic', color: 'var(--c-text-cyan)' }}>そのほか</span>}
+                    off={'Daily'}
+                  />
                 </a>
               </Link>
             </li>

@@ -19,7 +19,7 @@ const Home = () => {
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <DashboardLayout backgroundColor='#222222' color='#fff'>
+    <DashboardLayout backgroundColor='#05010D' color='#fff'>
       {page}
     </DashboardLayout>
   );

@@ -17,12 +17,14 @@
 
     & .sectionContents {
       position: absolute;
+      width: 100%;
 
       &:not(:empty) {
         padding: 1rem;
       }
-
+      
       & .sectionContentsInner {
+        padding: 1rem;
         border: 1px solid #2e2e2e;
       }
     }

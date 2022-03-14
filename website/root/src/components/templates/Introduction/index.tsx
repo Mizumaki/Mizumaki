@@ -40,19 +40,20 @@ export const Introduction = () => {
           <li>Component 設計</li>
           <li>CSS 設計</li>
         </ul>
-        <div className={styles.subSectionTitle}>
+        {/* TODO: Make it visible */}
+        <div className={styles.subSectionTitle} style={{ display: 'none' }}>
           <BorderSharpBox>
             <h3>経歴</h3>
           </BorderSharpBox>
         </div>
-        <div>
+        <div style={{ display: 'none' }}>
           <h4>職歴</h4>
           <h4>学歴</h4>
         </div>
       </div>
     </div>,
     {
-      initialVisibility: true,
+      initialVisibility: false,
       animationDuration: 500,
     }
   );
@@ -111,6 +112,7 @@ export const Introduction = () => {
         />
         {renderHobby()}
       </section>
+      {/* TODO: Make it visible */}
       <section style={{ visibility: 'hidden' }}>
         <p>links</p>
         <table>
