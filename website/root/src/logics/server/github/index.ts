@@ -10,31 +10,31 @@ export const getRepoInfoFromCategory = (category: BlogCategory): { org: string; 
         repo: 'logs_daily',
       };
     // TODO: Implement correctly
-    case 'dev':
-      return {
-        org: 'Mizumaki',
-        repo: 'logs_daily',
-      };
-    case 'foodie':
-      return {
-        org: 'Mizumaki',
-        repo: 'logs_daily',
-      };
-    case 'investment':
-      return {
-        org: 'Mizumaki',
-        repo: 'logs_daily',
-      };
-    case 'liquor':
-      return {
-        org: 'Mizumaki',
-        repo: 'logs_daily',
-      };
-    case 'movie':
-      return {
-        org: 'Mizumaki',
-        repo: 'logs_daily',
-      };
+    // case 'dev':
+    //   return {
+    //     org: 'Mizumaki',
+    //     repo: 'logs_daily',
+    //   };
+    // case 'foodie':
+    //   return {
+    //     org: 'Mizumaki',
+    //     repo: 'logs_daily',
+    //   };
+    // case 'investment':
+    //   return {
+    //     org: 'Mizumaki',
+    //     repo: 'logs_daily',
+    //   };
+    // case 'liquor':
+    //   return {
+    //     org: 'Mizumaki',
+    //     repo: 'logs_daily',
+    //   };
+    // case 'movie':
+    //   return {
+    //     org: 'Mizumaki',
+    //     repo: 'logs_daily',
+    //   };
   }
 };
 

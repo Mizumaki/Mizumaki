@@ -1,4 +1,5 @@
-const categories = ['dev', 'liquor', 'foodie', 'movie', 'investment', 'daily'] as const;
+// TODO: Open other categories
+const categories = [/*'dev', 'liquor', 'foodie', 'movie', 'investment', */ 'daily'] as const;
 
 export type BlogCategory = typeof categories[number];
 
