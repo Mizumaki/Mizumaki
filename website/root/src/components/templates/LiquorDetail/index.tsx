@@ -1,5 +1,6 @@
-import Image from 'next/image';
-import Talisker from '../../../talisker.png';
+// TODO: This is not compatible with next export
+// import Image from 'next/image';
+// import Talisker from '../../../talisker.png';
 import styles from './LiquorDetail.module.css';
 
 export const LiquorDetail: React.VFC = () => {
@@ -9,9 +10,7 @@ export const LiquorDetail: React.VFC = () => {
       <div className={styles.container}>
         <div className={styles.imageSection}>
           <p>お酒の画像</p>
-          <div className={styles.imgWrapper}>
-            <Image src={Talisker} alt='talisker' />
-          </div>
+          <div className={styles.imgWrapper}>{/* <Image src={Talisker} alt='talisker' /> */}</div>
         </div>
         <div className={styles.detailSection}>
           <table>

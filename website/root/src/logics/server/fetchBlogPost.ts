@@ -1,6 +1,7 @@
 import { BlogCategory } from '../entity/blogs';
 import { LogicError, LogicRes } from '../type';
 import { fetchGitBlob, getRepoInfoFromCategory, searchGitHub } from './github';
+import { marked } from 'marked';
 
 type BlogPost = {
   html: string;
@@ -18,13 +19,14 @@ export const fetchBlogPost = async (category: BlogCategory, slug: string): Promi
     if (item === undefined) {
       return [new LogicError(`fetchBlogPost failed: search result of ${slug} is 0`)];
     }
-
+    // TODO: Share `sha` from fetchBlogPostSlugs and use it (skip `searchGitHub` as far as possible)
     const blob = await fetchGitBlob({ ...repoInfo, sha: item.sha });
     const markdown = Buffer.from(blob.data.content, 'base64').toString();
+    const html = marked(markdown);
     return [
       undefined,
       {
-        html: markdown,
+        html,
       },
     ];
   } catch (e: unknown) {
