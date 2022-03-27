@@ -14,6 +14,6 @@
   "author": "Ryota Mizumaki",
   "homepage": "https://github.com/Mizumaki/Mizumaki#readme",
   "devDependencies": {
-    "typescript": "^4.5.3"
+    "typescript": "^4.6.3"
   }
 }
