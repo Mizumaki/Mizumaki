@@ -1,6 +1,8 @@
-import type { GetStaticPaths, GetStaticProps } from 'next';
+import type { GetStaticPaths, GetStaticProps, NextPageWithLayout } from 'next';
 import { useRouter } from 'next/router';
 import type { ParsedUrlQuery } from 'querystring';
+import React from 'react';
+import { DashboardLayout } from '~/components/templates/layouts/DashboardLayout';
 import { BlogCategory, isValidBlogCategory } from '~/logics/entity/blogs';
 import { fetchBlogPost } from '~/logics/server/fetchBlogPost';
 import { fetchBlogPostSlugs } from '~/logics/server/fetchBlogPostSlugs';
@@ -9,7 +11,7 @@ type Props = {
   htmlText: string;
 };
 
-const BlogPostPage: React.VFC<Props> = ({ htmlText }) => {
+const BlogPostPage: NextPageWithLayout<Props> = ({ htmlText }) => {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -20,6 +22,14 @@ const BlogPostPage: React.VFC<Props> = ({ htmlText }) => {
     <div>
       <div dangerouslySetInnerHTML={{ __html: htmlText }} />
     </div>
+  );
+};
+
+BlogPostPage.getLayout = function getLayout(page) {
+  return (
+    <DashboardLayout backgroundColor='#2b2724' color='white'>
+      {page}
+    </DashboardLayout>
   );
 };
 
