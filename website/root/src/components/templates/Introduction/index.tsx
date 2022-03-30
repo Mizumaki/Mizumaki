@@ -4,7 +4,7 @@ import { useDOMNode } from '~/utils/useDOMNode';
 import { useVisibilityAnimation } from '~/utils/useVisibilityAnimation';
 import styles from './Introduction.module.css';
 
-// やりたいこと：多言語対応、CLI like view、
+// TODO: やりたいこと：多言語対応、CLI like view、Design
 export const Introduction = () => {
   const [selfIntroductionElm, selfIntroductionRefCallback] = useDOMNode();
   const [isSelfIntroductionShown, , setIsSelfIntroductionShown, renderSelfIntroduction] = useVisibilityAnimation(

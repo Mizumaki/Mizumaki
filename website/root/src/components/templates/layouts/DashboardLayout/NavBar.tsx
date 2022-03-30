@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styles from './NavBar.module.css';
 import { Hover } from '~/components/atoms/Hover';
 import { BorderBoxWithTitle } from '~/components/atoms/BorderBoxWithTitle';
+import { ReactNode } from 'react';
 
 export const NavBar: React.VFC = () => {
   return (
@@ -20,65 +21,78 @@ export const NavBar: React.VFC = () => {
           titleMarginBottom='-0.5em'>
           <ul className={styles.links}>
             <li>
-              <Link href='/'>
-                <a>
-                  <Hover
-                    on={<span style={{ fontStyle: 'italic', color: 'var(--c-text-blue)' }}>プログラミング</span>}
-                    off={'Programming'}
-                  />
-                </a>
-              </Link>
+              <LinkItem
+                disabled
+                href='/logs/dev'
+                hoverOn={<span style={{ fontStyle: 'italic', color: 'var(--c-text-blue)' }}>プログラミング</span>}
+                hoverOff={'Programming'}
+              />
             </li>
             <li>
-              <Link href='/liquor'>
-                <a>
-                  <Hover
-                    on={<span style={{ fontStyle: 'italic', color: 'var(--c-text-yellow)' }}>リカー</span>}
-                    off={'Liquor'}
-                  />
-                </a>
-              </Link>
+              <LinkItem
+                disabled
+                href='/logs/liquor'
+                hoverOn={<span style={{ fontStyle: 'italic', color: 'var(--c-text-yellow)' }}>リカー</span>}
+                hoverOff={'Liquor'}
+              />
             </li>
             <li>
-              <Link href='/liquor'>
-                <a>
-                  <Hover
-                    on={<span style={{ fontStyle: 'italic', color: 'var(--c-text-yellow)' }}>メシ</span>}
-                    off={'Restaurant'}
-                  />
-                </a>
-              </Link>
+              <LinkItem
+                disabled
+                href='/logs/foodie'
+                hoverOn={<span style={{ fontStyle: 'italic', color: 'var(--c-text-yellow)' }}>メシ</span>}
+                hoverOff={'Restaurant'}
+              />
             </li>
             <li>
-              <Link href='/movie'>
-                <a>
-                  <Hover on={<span style={{ fontStyle: 'italic' }}>ムービー</span>} off={'Movie'} />
-                </a>
-              </Link>
+              <LinkItem
+                disabled
+                href='/logs/movie'
+                hoverOn={<span style={{ fontStyle: 'italic' }}>ムービー</span>}
+                hoverOff={'Movie'}
+              />
             </li>
             <li>
-              <Link href='/'>
-                <a>
-                  <Hover
-                    on={<span style={{ fontStyle: 'italic', color: 'var(--c-text-cyan)' }}>マネー</span>}
-                    off={'Investment'}
-                  />
-                </a>
-              </Link>
+              <LinkItem
+                disabled
+                href='/logs/investment'
+                hoverOn={<span style={{ fontStyle: 'italic', color: 'var(--c-text-cyan)' }}>マネー</span>}
+                hoverOff={'Investment'}
+              />
             </li>
             <li>
-              <Link href='/'>
-                <a>
-                  <Hover
-                    on={<span style={{ fontStyle: 'italic', color: 'var(--c-text-cyan)' }}>そのほか</span>}
-                    off={'Daily'}
-                  />
-                </a>
-              </Link>
+              <LinkItem
+                href='/logs/daily'
+                hoverOn={<span style={{ fontStyle: 'italic', color: 'var(--c-text-cyan)' }}>そのほか</span>}
+                hoverOff={'Daily'}
+              />
             </li>
           </ul>
         </BorderBoxWithTitle>
       </section>
     </div>
+  );
+};
+
+const LinkItem: React.VFC<{
+  href: string;
+  hoverOn: ReactNode;
+  hoverOff: ReactNode;
+  disabled?: boolean;
+}> = ({ href, hoverOn, hoverOff, disabled }) => {
+  if (disabled) {
+    return (
+      <button disabled className={styles.disabledButton}>
+        {hoverOff}
+      </button>
+    );
+  }
+
+  return (
+    <Link href={href}>
+      <a>
+        <Hover on={hoverOn} off={hoverOff} />
+      </a>
+    </Link>
   );
 };

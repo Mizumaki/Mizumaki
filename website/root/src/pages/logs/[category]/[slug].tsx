@@ -8,10 +8,11 @@ import { fetchBlogPost } from '~/logics/server/fetchBlogPost';
 import { fetchBlogPostSlugs } from '~/logics/server/fetchBlogPostSlugs';
 
 type Props = {
+  title: string;
   htmlText: string;
 };
 
-const BlogPostPage: NextPageWithLayout<Props> = ({ htmlText }) => {
+const BlogPostPage: NextPageWithLayout<Props> = ({ title, htmlText }) => {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -20,6 +21,7 @@ const BlogPostPage: NextPageWithLayout<Props> = ({ htmlText }) => {
 
   return (
     <div>
+      <h1>{title}</h1>
       <div dangerouslySetInnerHTML={{ __html: htmlText }} />
     </div>
   );
@@ -72,6 +74,8 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) 
 
   return {
     props: {
+      // TODO: Handle when title is undefined
+      title: data.info?.title ?? '',
       htmlText: data.html,
     },
   };
