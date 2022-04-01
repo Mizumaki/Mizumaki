@@ -1,30 +1,33 @@
 import { GetStaticPaths, GetStaticProps, NextPageWithLayout } from 'next';
-import Link from 'next/link';
 import { ParsedUrlQuery } from 'querystring';
+import { useMemo } from 'react';
+import { BlogPostList } from '~/components/molecules/BlogPostList';
 import { DashboardLayout } from '~/components/templates/layouts/DashboardLayout';
 import { BlogCategory, isValidBlogCategory } from '~/logics/entity/blogs';
 import { fetchBlogPost } from '~/logics/server/fetchBlogPost';
 import { fetchBlogPostSlugs } from '~/logics/server/fetchBlogPostSlugs';
+import styles from './index.module.css';
 
 type Props = {
   category: BlogCategory;
-  items: { slug: string; title: string }[];
+  items: { slug: string; title: string; date: string }[];
 };
 
 const LogListPage: NextPageWithLayout<Props> = ({ category, items }) => {
+  const posts = useMemo(() => {
+    return items.map(({ slug, title, date }) => {
+      return {
+        href: `/logs/${category}/${slug}`,
+        title,
+        date,
+      };
+    });
+  }, [items]);
+
   return (
     <div>
-      <h1>{category}</h1>
-      <ul>
-        {items.map(({ slug, title }) => {
-          const href = `/logs/${category}/${slug}`;
-          return (
-            <Link key={href} href={href}>
-              {title}
-            </Link>
-          );
-        })}
-      </ul>
+      <h1 className={styles.capitalize}>{category} work</h1>
+      <BlogPostList items={posts} />
     </div>
   );
 };
@@ -75,7 +78,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) 
       // TODO: This should not be always 404
       return { notFound: true };
     }
-    props.items.push({ slug: s, title: data.info?.title ?? s });
+    props.items.push({ slug: s, title: data.info.title, date: data.info.date });
   }
 
   return {

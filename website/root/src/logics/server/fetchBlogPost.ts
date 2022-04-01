@@ -6,7 +6,7 @@ import { SimpleCache } from '~/utils/SimpleCache';
 
 type BlogPost = {
   html: string;
-  info?: BlogPostInfo;
+  info: BlogPostInfo;
 };
 
 // TODO: GitHub のロジックを別サーバーに切り出したら、ここら辺も良い感じに
@@ -28,17 +28,14 @@ export const fetchBlogPost = async (category: BlogCategory, slug: string): Promi
     }
     const blob = await fetchGitBlob({ ...repoInfo, sha: item.sha });
     const markdown = Buffer.from(blob.data.content, 'base64').toString();
-    const { html, info } = parseMarkdown(markdown);
+    const [err, md] = parseMarkdown(markdown);
+    if (err) {
+      return [err];
+    }
 
-    cache.set(`${category}_${slug}`, { html, info }, 30000);
+    cache.set(`${category}_${slug}`, md, 30000);
 
-    return [
-      undefined,
-      {
-        html,
-        info,
-      },
-    ];
+    return [undefined, md];
   } catch (e: unknown) {
     return [new LogicError('fetchBlogPost failed', e)];
   }
