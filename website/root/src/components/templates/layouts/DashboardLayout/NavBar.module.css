@@ -15,6 +15,7 @@
   & .disabledButton {
     position: relative;
     overflow: hidden;
+    cursor: initial;
 
     &::before,
     &::after {

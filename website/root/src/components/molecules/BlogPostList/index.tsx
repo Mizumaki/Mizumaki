@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { WrapGridUl } from '~/components/atoms/layouts/WrapGrid';
 import type { BlogPostInfo } from '~/logics/entity/blogs';
 import { BoxBlogPost } from './BoxBlogPost';
 import styles from './index.module.css';
@@ -9,7 +10,7 @@ type Props = {
 
 export const BlogPostList: React.VFC<Props> = ({ items }) => {
   return (
-    <ul>
+    <WrapGridUl itemMaxWidth='28rem' rowGap='1.4rem' columnGap='1.4rem'>
       {items.map(post => {
         return (
           <li key={post.href} className={styles.box}>
@@ -21,6 +22,6 @@ export const BlogPostList: React.VFC<Props> = ({ items }) => {
           </li>
         );
       })}
-    </ul>
+    </WrapGridUl>
   );
 };

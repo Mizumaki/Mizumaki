@@ -25,8 +25,8 @@ const LogListPage: NextPageWithLayout<Props> = ({ category, items }) => {
   }, [items]);
 
   return (
-    <div>
-      <h1 className={styles.capitalize}>{category} work</h1>
+    <div className={styles.blogPostListContainer}>
+      <h2 className={styles.capitalize}>{category}</h2>
       <BlogPostList items={posts} />
     </div>
   );
