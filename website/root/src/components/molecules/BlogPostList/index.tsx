@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { BlogPostInfo } from '~/logics/entity/blogs';
+import { BoxBlogPost } from './BoxBlogPost';
 import styles from './index.module.css';
 
 type Props = {
@@ -14,8 +15,7 @@ export const BlogPostList: React.VFC<Props> = ({ items }) => {
           <li key={post.href} className={styles.box}>
             <Link href={post.href}>
               <a>
-                {post.title}
-                {post.date}
+                <BoxBlogPost info={post} />
               </a>
             </Link>
           </li>
