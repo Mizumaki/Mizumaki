@@ -1,6 +1,7 @@
+import { NextPageWithLayout } from 'next';
 import { DashboardLayout } from '~/components/templates/layouts/DashboardLayout';
 
-const NotFoundPage = () => {
+const NotFoundPage: NextPageWithLayout = () => {
   return (
     <div style={{ margin: '1em' }}>
       <h2>404 - Page Not Found</h2>
