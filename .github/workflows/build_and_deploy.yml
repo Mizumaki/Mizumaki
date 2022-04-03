@@ -28,6 +28,9 @@ jobs:
         run: npm run build
         env:
           GITHUB_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN_FOR_GITHUB_REPO }}
+      # To avoid 404 of _* folder
+      - name: Add nojekyll 🧪
+        run: touch ./dist/.nojekyll
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
