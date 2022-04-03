@@ -1,0 +1,41 @@
+.box {
+  --sharpWidth: 0.8rem;
+  --sharpHeight: 1rem;
+
+  display: inline-block;
+
+  & .border {
+    background-size: var(--sharpWidth) var(--sharpHeight);
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2035%2053%22%20fill%3D%22white%22%3E%20%3Ctext%20x%3D%220%22%20y%3D%2253%22%20font-size%3D%2253%22%3E%20%23%20%3C%2Ftext%3E%3C%2Fsvg%3E');
+  }
+}
+
+.contents {
+  display: flex;
+}
+
+.border {
+  &.top {
+    height: var(--sharpHeight);
+    background-repeat: round no-repeat;
+    background-position: bottom left;
+  }
+
+  &.bottom {
+    height: var(--sharpHeight);
+    background-repeat: round no-repeat;
+    background-position: top left;
+  }
+
+  &.left {
+    width: var(--sharpWidth);
+    background-repeat: no-repeat round;
+    background-position: top left;
+  }
+
+  &.right {
+    width: var(--sharpWidth);
+    background-repeat: no-repeat round;
+    background-position: top right;
+  }
+}

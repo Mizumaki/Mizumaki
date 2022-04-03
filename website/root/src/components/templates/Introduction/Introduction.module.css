@@ -1,0 +1,57 @@
+.wrapper {
+  & > section + section {
+    margin-top: 1.5em;
+  }
+
+  & h1 {
+    margin-bottom: 0.2em;
+  }
+
+  & h3 {
+    font-size: 1em;
+    padding: 0.5em;
+  }
+
+  & section {
+    position: relative;
+
+    & .sectionContents {
+      position: absolute;
+      width: 100%;
+
+      &:not(:empty) {
+        padding: 1rem;
+      }
+      
+      & .sectionContentsInner {
+        padding: 1rem;
+        border: 1px solid #2e2e2e;
+      }
+    }
+  }
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.2em;
+
+  & .title {
+    margin-left: 0.2em;
+  }
+
+  & .sectionToggleButton {
+    height: 1ch;
+    display: flex;
+    align-items: center;
+    font-size: 3.2rem;
+  }
+}
+
+.subSectionTitle {
+  margin: 0.5em;
+}
+
+.icon {
+  font-size: 4.2rem;
+}

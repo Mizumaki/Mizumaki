@@ -1,0 +1,14 @@
+.wrapper {
+  width: 100%;
+}
+
+.titleSection {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.titleSection .borderTop {
+  flex: 1;
+  height: 0;
+}

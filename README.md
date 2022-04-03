@@ -1,12 +1,10 @@
 # Ryota Mizumaki
 
-The WEB Developer
+Drunk WEB Developer
 
-Love JS. (Jason Statham & JavaScript)
-Of course, I love TypeScript too.
-(In fact, I like it more than JavaScript lol)
+I like
 
-Also, I love React.
-
-However, unfortunately, I like liquor better than any of these.
-I drink anything, but I especially like Gin (My favorite is Monkey 47).
+- TypeScript
+- React
+- Liquor (especially Whisky)
+- Movie (especially Jason Statham)

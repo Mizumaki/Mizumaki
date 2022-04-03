@@ -1,0 +1,57 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier" // The prettier's settings have priority over eslint
+  ],
+  "plugins": ["react", "jsx-a11y", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": ["**/*.test.ts", "**/*.config.js"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+  "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-unsafe-call": "off", // For `jest` test code...
+    "@typescript-eslint/no-unsafe-member-access": "off", // For `jest` test code...
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    "prettier/prettier": ["off", {}, { "userprettierrc": true }], // Not showing coding style warninig. Coding style will be fixed by prettier.
+    "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off", // https://ja.reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint
+    "react/sort-comp": [
+      "warn",
+      {
+        "order": ["instance-variables", "static-methods", "lifecycle", "everything-else", "render"]
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "assert": "either"
+      }
+    ], // If "both", failed when nesting without id https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-associated-control.md
+    "jsx-a11y/no-onchange": "off",
+    "jsx-a11y/accessible-emoji": "off", // Deprecated https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/accessible-emoji.md
+    "jsx-a11y/anchor-is-valid": [ // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/402#issuecomment-368305051
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ]
+  }
+}
