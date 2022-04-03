@@ -4,9 +4,10 @@ on:
     branches: [master]
     paths:
       - "website/root/**/*"
+  workflow_dispatch:
 defaults:
   run:
-   working-directory: website/root
+    working-directory: website/root
 
 jobs:
   build_and_deploy:
